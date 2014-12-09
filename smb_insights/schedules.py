@@ -14,7 +14,7 @@ def load_quarter_hour_data(path='data/smb_ami_quarter_hour.tsv'):
     #qh = drop_insufficient_days(qh)
     return qh.iloc[:, range(4) + range(4, len(qh.columns), 2)]  # drop usage_type columns
 
-def load_quarter_hour_data_d(path='data/d_ami.csv'):
+def load_quarter_hour_data_d(path='data/dentist_ami_01-2014.csv'):
     qh = pd.read_csv(path, sep='\t', dtype=unicode, parse_dates=['date_value'])
     qh = qh.iloc[:, range(4) + range(4, len(qh.columns), 2)] # drop usage_type columns
     qh = qh.convert_objects(convert_numeric=True)
@@ -28,7 +28,22 @@ def load_quarter_hour_data_d_july(path='data/dentist_ami_07-2014.csv'):
     #qh = drop_negative_day_values(qh)
     return qh
 
-def load_quarter_hour_data_r(path='data/r_ami.csv'):
+
+def load_quarter_hour_data_s(path='data/school_ami_07-2014.csv'):
+    qh = pd.read_csv(path, sep='\t', dtype=unicode, parse_dates=['date_value'])
+    qh = qh.iloc[:, range(4) + range(4, len(qh.columns), 2)] # drop usage_type columns
+    qh = qh.convert_objects(convert_numeric=True)
+    #qh = drop_negative_day_values(qh)
+    return qh
+
+def load_quarter_hour_data_s_jan(path='data/school_ami_01-2014.csv'):
+    qh = pd.read_csv(path, sep='\t', dtype=unicode, parse_dates=['date_value'])
+    qh = qh.iloc[:, range(4) + range(4, len(qh.columns), 2)] # drop usage_type columns
+    qh = qh.convert_objects(convert_numeric=True)
+    #qh = drop_negative_day_values(qh)
+    return qh
+
+def load_quarter_hour_data_r(path='data/restaurant_ami_01-2014.csv'):
     qh = pd.read_csv(path, sep='\t', dtype=unicode, parse_dates=['date_value'])
     qh = qh.iloc[:, range(4) + range(4, len(qh.columns), 2)]  # drop usage_type columns
     qh = qh.convert_objects(convert_numeric=True)
